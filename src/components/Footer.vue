@@ -20,9 +20,9 @@
         </div>
         <div class="col-md-3">
           <h4>联系我们</h4>
-          <p>客服电话：400-888-8888</p>
+          <p>客服电话：19511687612</p>
           <p>工作时间：周一至周五 9:00-18:00</p>
-          <p>邮箱：support@example.com</p>
+          <p>邮箱：2386999483@qq.com</p>
         </div>
         <div class="col-md-3">
           <h4>关注我们</h4>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <hr />
-      <p class="copyright">Copyright © 2024 农业贷款服务平台. 版权所有</p>
+      <p class="copyright">Copyright © 2025 农业贷款服务平台. 版权所有</p>
     </div>
   </footer>
 </template>
@@ -80,16 +80,18 @@ ul li {
 }
 
 ul li a {
-  color: #aaa;
-  text-decoration: none;
+  text-decoration: none; /* 移除下划线 */
+  color: #aaa; /* 设置初始颜色 */
   transition: color 0.3s ease;
 }
 
 ul li a:hover {
-  color: #fff;
+  color: #fff; /* 链接悬停时的颜色 */
+  text-decoration: none; /* 悬停时也移除下划线 */
 }
 
 .social-icons a {
+  text-decoration: none; /* 移除下划线 */
   color: #aaa;
   font-size: 20px;
   margin-right: 10px;
@@ -98,11 +100,13 @@ ul li a:hover {
 
 .social-icons a:hover {
   color: #fff;
+  text-decoration: none; /* 悬停时也移除下划线 */
 }
 
+/* 添加：使版权信息居中 */
 .copyright {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 12px;
+  text-align: center; /* 居中对齐 */
 }
 </style>
+<script setup lang="ts">
+</script>

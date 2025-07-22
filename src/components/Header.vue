@@ -11,8 +11,8 @@
         </ul>
       </nav>
       <div class="actions">
-        <button>登录</button>
-        <button>注册</button>
+        <button><router-link to="/login">登录</router-link></button>
+        <button><router-link to="/register">注册</router-link></button> <!-- 添加注册链接 -->
       </div>
     </div>
   </header>
@@ -59,14 +59,21 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #2c3e50;
+  text-decoration: none; /* 移除下划线 */
+  color: #2c3e50; /* 设置初始颜色 */
   font-size: 16px;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
   color: #4CAF50; /* 链接悬停时的颜色 */
+  text-decoration: none; /* 悬停时也移除下划线 */
+}
+
+/* 添加：处理 .actions 内部的 <router-link> 样式 */
+.actions button a {
+  text-decoration: none;
+  color: inherit; /* 继承父元素颜色 */
 }
 
 .actions {

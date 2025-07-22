@@ -1,37 +1,59 @@
 <template>
-  <div class="faq-section">
-    <div v-for="(faq, index) in faqs" :key="index" class="faq">
-      <h4>{{ faq.question }}</h4>
-      <p>{{ faq.answer }}</p>
-    </div>
+  <div class="faq-card">
+    <h3>{{ question }}</h3>
+    <p>{{ answer }}</p>
   </div>
 </template>
 
 <script setup>
-const faqs = [
-  { question: '申请条件有哪些？', answer: '年龄 18 周岁...' },
-  // 其他常见问题...
-];
+defineProps({
+  question: String,
+  answer: String
+});
 </script>
 
 <style scoped>
-.faq-section {
-  margin: 40px 0;
-}
-
-.faq {
-  background-color: #f9f9f9;
+.faq-card {
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  margin-bottom: 20px;
+  width: 35%; /* 每行占 35% 宽度，确保两列布局 */
+  margin-bottom: 10px; /* 减小垂直间距 */
+  margin-left: 6%;
+  margin-right: 6%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faq h4 {
-  margin-top: 0;
+@media (max-width: 768px) {
+  .faq-card {
+    width: 100%; /* 屏幕小于 768px 时，改为单列 */
+    margin-right: 0; /* 在小屏幕上移除右边距 */
+  }
 }
 
-.faq p {
-  margin: 10px 0 0;
+.faq-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.faq-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.faq-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.faq-card a {
+  text-decoration: none; /* 移除下划线 */
+  color: #4CAF50; /* 设置初始颜色 */
+}
+
+.faq-card a:hover {
+  color: #28a745; /* 链接悬停时的颜色 */
+  text-decoration: none; /* 悬停时也移除下划线 */
 }
 </style>

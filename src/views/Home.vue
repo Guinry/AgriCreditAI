@@ -31,7 +31,7 @@
         <div class="title-container">
           <h2>申请流程</h2>
         </div>
-        <div class="steps-container">
+        <div class="cards-container">
           <ApplicationProcess
               v-for="(step, index) in applicationProcess"
               :key="index"
@@ -50,14 +50,34 @@
 
       <!-- 最新政策资讯 -->
       <section class="latest-policies">
-        <h2>最新政策资讯</h2>
-        <LatestPolicies />
+        <div class="title-container">
+          <h2>最新政策</h2>
+        </div>
+        <div class="cards-container">
+          <LatestPolicies
+              v-for="(policy, index) in latestPolicies"
+              :key="index"
+              :title="policy.title"
+              :description="policy.description"
+              :image="policy.image"
+              :date="policy.date"
+          />
+        </div>
       </section>
 
       <!-- 常见问题 -->
       <section class="faq-section">
-        <h2>常见问题</h2>
-        <FaqSection />
+        <div class="title-container">
+          <h2>常见问题</h2>
+        </div>
+        <div class="faq-container">
+          <FaqSection
+              v-for="(faq, index) in faqs"
+              :key="index"
+              :question="faq.question"
+              :answer="faq.answer"
+          />
+        </div>
       </section>
     </main>
     <Footer />
@@ -128,10 +148,38 @@ const applicationProcess = [
     image: 'src/icons/distribute.svg',
   }
 ];
+
+const latestPolicies = [
+  {
+    title: '国务院发布新政策：加大对农业产业化龙头企业的金融支持力度',
+    description: '为进一步推动乡村振兴战略实施，国务院近日出台新政策，将加大对农业产业化龙头企业的金融支持...',
+    image: 'src/assets/images/policy1.jpg', // 替换为指定图片路径
+    date: '2025-06-28'
+  },
+  {
+    title: '农业农村部：实施数字农业农村发展工程',
+    description: '农业农村部近日宣布，将全面推进数字农业农村发展工程，促进农业现代化和农村信息化建设...',
+    image: 'src/assets/images/policy2.jpg', // 替换为指定图片路径
+    date: '2025-07-11'
+  },
+  {
+    title: '农业银行推出“乡村振兴”专项信贷计划',
+    description: '农业银行宣布推出总规模 5000 亿元的“乡村振兴”专项信贷计划，支持新型农业经营主体发展...',
+    image: 'src/assets/images/policy3.jpg', // 替换为指定图片路径
+    date: '2025-07-20'
+  }
+];
+
+const faqs = [
+  { question: '申请条件有哪些？', answer: '年满 18 周岁的中国公民，具有完全民事行为能力，从事农业生产经营活动满 1 年以上，信用记录良好。' },
+  { question: '需要准备哪些材料？', answer: '身份证、户口本、婚姻证明、收入证明、资产证明等基础资料，具体要求可能因贷款产品不同而异。' },
+  { question: '多久能放款？', answer: '资料齐全的情况下，一般 3-5 个工作日内完成审核，审核通过后 1 个工作日放款。' },
+  { question: '如何还款？', answer: '支持手机银行、网上银行、银行柜台等多种还款方式，可选择等额本息或等额本金的还款方式。' }
+];
 </script>
 
 <style scoped>
-.featured-loans, .application-process, .loan-calculator {
+.featured-loans, .application-process, .loan-calculator, .latest-policies, .faq-section {
   display: flex;
   flex-direction: column; /* 修改：垂直排列 */
   align-items: center; /* 修改：水平居中 */
@@ -143,12 +191,6 @@ const applicationProcess = [
 }
 
 .cards-container {
-  display: flex;
-  justify-content: space-around; /* 修改：均匀分布 */
-  flex-wrap: wrap; /* 允许换行 */
-}
-
-.steps-container {
   display: flex;
   justify-content: space-around; /* 修改：均匀分布 */
   flex-wrap: wrap; /* 允许换行 */
@@ -210,96 +252,16 @@ const applicationProcess = [
   margin: 40px 0;
 }
 
-.loan-calculator form {
-  display: flex;
-  flex-direction: column;
-}
-
-.loan-calculator input,
-.loan-calculator select {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.loan-calculator button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* 添加贷款计算器按钮的悬停效果 */
-.loan-calculator button:hover {
-  background-color: #45a049;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.latest-policies {
-  display: flex;
-  justify-content: space-around;
-  margin: 40px 0;
-}
-
-.latest-policies .policy-item {
-  max-width: 300px;
-  margin: 0 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.latest-policies .policy-item img {
-  width: 100%;
-  height: auto;
-}
-
-.latest-policies .policy-item .content {
-  padding: 20px;
-}
-
-.latest-policies .policy-item .content h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.latest-policies .policy-item .content p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.latest-policies .policy-item .content .date {
-  font-size: 12px;
-  color: #999;
-}
-
 .faq-section {
   background-color: #f9f9f9;
-  padding: 20px;
+  padding: 40px;
   border-radius: 8px;
   margin: 40px 0;
 }
 
-.faq-section .faq-item {
-  margin-bottom: 20px;
-}
-
-.faq-section .faq-item h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.faq-section .faq-item p {
-  font-size: 14px;
-  color: #666;
-}
-
-.faq-section .faq-item h3:hover {
-  color: #4CAF50;
+.faq-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>
