@@ -11,57 +11,35 @@
 
       <!-- 特色贷款产品 -->
       <section class="featured-loans">
-        <h2>特色贷款产品</h2>
-        <!-- 农机购置贷款 -->
-        <div class="loan-product-card">
-          <img src="https://placehold.co/300x200" alt="农机购置贷款">
-          <div class="content">
-            <h3>农机购置贷款</h3>
-            <p>用于购买农业机械设备的贷款产品，年利率低至 3.85%。</p>
-            <ul>
-              <li>最高可贷 50 万元</li>
-              <li>期限最长 5 年</li>
-              <li>无抵押、免担保</li>
-            </ul>
-            <button>申请贷款</button>
-          </div>
+        <div class="title-container">
+          <h2>特色贷款产品</h2>
         </div>
-
-        <!-- 设施农业贷款 -->
-        <div class="loan-product-card">
-          <img src="https://placehold.co/300x200" alt="设施农业贷款">
-          <div class="content">
-            <h3>设施农业贷款</h3>
-            <p>支持大棚建设、智能温室等农业设施建设，年利率 4.35%。</p>
-            <ul>
-              <li>最高可贷 100 万元</li>
-              <li>期限最长 10 年</li>
-              <li>可按季度还息</li>
-            </ul>
-            <button>申请贷款</button>
-          </div>
-        </div>
-
-        <!-- 农产品经营贷款 -->
-        <div class="loan-product-card">
-          <img src="https://placehold.co/300x200" alt="农产品经营贷款">
-          <div class="content">
-            <h3>农产品经营贷款</h3>
-            <p>支持农产品收购、储存、加工等经营活动，年利率 4.15%。</p>
-            <ul>
-              <li>最高可贷 200 万元</li>
-              <li>期限最长 3 年</li>
-              <li>灵活还款方式</li>
-            </ul>
-            <button>申请贷款</button>
-          </div>
+        <div class="cards-container">
+          <LoanProductCard
+              v-for="(product, index) in loanProducts"
+              :key="index"
+              :title="product.title"
+              :description="product.description"
+              :image="product.image"
+              :features="product.features"
+          />
         </div>
       </section>
 
       <!-- 申请流程 -->
       <section class="application-process">
-        <h2>申请流程</h2>
-        <ApplicationProcess />
+        <div class="title-container">
+          <h2>申请流程</h2>
+        </div>
+        <div class="steps-container">
+          <ApplicationProcess
+              v-for="(step, index) in applicationProcess"
+              :key="index"
+              :title="step.title"
+              :description="step.description"
+              :image="step.image"
+          />
+        </div>
       </section>
 
       <!-- 贷款计算器 -->
@@ -93,9 +71,97 @@ import ApplicationProcess from '@/components/ApplicationProcess.vue';
 import LoanCalculator from '@/components/LoanCalculator.vue';
 import LatestPolicies from '@/components/LatestPolicies.vue';
 import FaqSection from '@/components/FaqSection.vue';
+import LoanProductCard from '@/components/LoanProductCard.vue';
+
+const loanProducts = [
+  {
+    title: '农机购置贷款',
+    description: '用于购买农业机械设备的贷款产品，年利率低至 3.85%。',
+    image: 'src/assets/images/loan_product1.jpg', // 替换为指定图片路径
+    features: [
+      '最高可贷 50 万元',
+      '期限最长 5 年',
+      '无抵押、免担保'
+    ]
+  },
+  {
+    title: '设施农业贷款',
+    description: '支持大棚建设、智能温室等农业设施建设，年利率 4.35%。',
+    image: 'src/assets/images/loan_product2.jpg', // 替换为指定图片路径
+    features: [
+      '最高可贷 100 万元',
+      '期限最长 10 年',
+      '可按季度还息'
+    ]
+  },
+  {
+    title: '农产品经营贷款',
+    description: '支持农产品收购、储存、加工等经营活动，年利率 4.15%。',
+    image: 'src/assets/images/loan_product3.jpg', // 替换为指定图片路径
+    features: [
+      '最高可贷 200 万元',
+      '期限最长 3 年',
+      '灵活还款方式'
+    ]
+  }
+];
+
+const applicationProcess = [
+  {
+    title: '注册认证',
+    description: '完成实名认证和身份验证',
+    image: 'src/icons/enroll.svg',
+  },
+  {
+    title: '提交申请',
+    description: '填写贷款申请资料',
+    image: 'src/icons/submit.svg',
+  },
+  {
+    title: '审核评估',
+    description: '银行进行贷款审核',
+    image: 'src/icons/audit.svg',
+  },
+  {
+    title: '放款支付',
+    description: '审核通过后快速放款',
+    image: 'src/icons/distribute.svg',
+  }
+];
 </script>
 
 <style scoped>
+.featured-loans {
+  display: flex;
+  flex-direction: column; /* 修改：垂直排列 */
+  align-items: center; /* 修改：水平居中 */
+  margin: 40px 0;
+}
+
+.title-container {
+  margin-bottom: 10px; /* 添加标题与卡片之间的间距 */
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around; /* 修改：均匀分布 */
+  flex-wrap: wrap; /* 允许换行 */
+}
+
+.application-process {
+  display: flex;
+  flex-direction: column; /* 修改：垂直排列 */
+  align-items: center; /* 修改：水平居中 */
+  margin: 40px 0;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-around; /* 修改：均匀分布 */
+  flex-wrap: wrap; /* 允许换行 */
+}
+
+/* 删除: .loan-product-card 样式 */
 .hero-section {
   background-image: url('@/assets/images/home_agriculture.jpg'); /* 使用指定图片 */
   background-size: 100% auto; /* 修改: 拉长背景图 */
@@ -140,65 +206,6 @@ import FaqSection from '@/components/FaqSection.vue';
 }
 
 .hero-section button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #45a049;
-}
-
-.featured-loans {
-  display: flex;
-  flex-direction: row; /* 修改：水平排列 */
-  justify-content: space-around; /* 修改：均匀分布 */
-  align-items: center; /* 修改：垂直居中 */
-  margin: 40px 0;
-}
-
-.featured-loans .loan-product-card {
-  max-width: 300px;
-  margin: 20px; /* 修改：调整间距 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.featured-loans .loan-product-card img {
-  width: 100%;
-  height: auto;
-}
-
-.featured-loans .loan-product-card .content {
-  padding: 20px;
-  text-align: center;
-}
-
-.featured-loans .loan-product-card .content h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.featured-loans .loan-product-card .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.featured-loans .loan-product-card .content ul li {
-  margin: 5px 0;
-}
-
-.featured-loans .loan-product-card .content button {
-  padding: 10px 20px;
-  font-size: 14px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
-}
-
-.featured-loans .loan-product-card .content button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #45a049;
