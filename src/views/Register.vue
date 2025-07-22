@@ -8,13 +8,17 @@
         <input type="text" v-model="username" placeholder="请输入用户名" required />
         <input type="password" v-model="password" placeholder="请输入密码" required />
         <input type="tel" v-model="phone" placeholder="请输入手机号码" required />
-        <input type="text" v-model="captcha" placeholder="请输入验证码" required />
-        <button type="button" @click="handleGetCaptcha">获取验证码</button>
+        <div class="captcha-container">
+          <input type="text" v-model="captcha" placeholder="请输入验证码" required />
+          <button type="button" @click="handleGetCaptcha" class="get-captcha-btn">获取验证码</button>
+        </div>
         <div class="checkbox-container">
           <input type="checkbox" v-model="agreed" required />
           <label>我已阅读并同意 <a href="#">《用户服务协议》</a> 和 <a href="#">《隐私政策》</a></label>
         </div>
-        <button type="submit">立即注册</button>
+        <div class="submit-container">
+          <button type="submit">立即注册</button>
+        </div>
       </form>
       <p>已有账号？<router-link to="/login">立即登录</router-link></p>
     </div>
@@ -22,8 +26,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import {ref} from 'vue';
+import {useRouter} from 'vue-router';
 
 const username = ref('');
 const password = ref('');
@@ -58,19 +62,21 @@ const handleGetCaptcha = () => {
   align-items: center;
   height: 100vh;
   background-color: #f8f9fa;
-  /* 添加背景图片 */
-  background-image: url('@/assets/images/register_background.jpg');
-  background-size:100% 100%;
-  background-attachment:fixed;
+  /* 更新背景图片 */
+  background-image: url('src/assets/images/register_background.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .register-form {
   background-color: #fff;
-  padding: 60px;
+  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  min-height: 500px;
+  width: 352px;
+  max-width: 100%;
+  min-height: 400px;
 }
 
 .logo-image {
@@ -80,6 +86,7 @@ const handleGetCaptcha = () => {
 
 .register-form h2 {
   font-size: 24px;
+  color: #333;
   margin-bottom: 10px;
 }
 
@@ -90,35 +97,87 @@ const handleGetCaptcha = () => {
 }
 
 .register-form input {
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 .register-form button {
-  width: 100%;
-  padding: 10px;
+  padding: 14px 0;
   background-color: #28a745;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-bottom: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
 }
 
 .register-form button:hover {
   background-color: #45a049;
 }
 
+.captcha-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.captcha-container input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.captcha-container button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .checkbox-container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
+.checkbox-container input[type="checkbox"] {
+  width: 16px; /* 增加 checkbox 的尺寸 */
+  height: 16px;
+  margin-right: 8px; /* 增加 checkbox 和 label 之间的间距 */
+  accent-color: #28a745; /* 设置选中时的颜色 */
+}
+
 .checkbox-container label {
-  margin-left: 10px;
+  margin-left: 0; /* 移除 label 的左边距 */
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container label a {
+  color: #28a745;
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.submit-container button {
+  width: 100%;
+}
+
+p a {
+  color: #28a745;
 }
 </style>
