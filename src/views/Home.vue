@@ -131,7 +131,7 @@ const applicationProcess = [
 </script>
 
 <style scoped>
-.featured-loans {
+.featured-loans, .application-process, .loan-calculator {
   display: flex;
   flex-direction: column; /* 修改：垂直排列 */
   align-items: center; /* 修改：水平居中 */
@@ -148,20 +148,12 @@ const applicationProcess = [
   flex-wrap: wrap; /* 允许换行 */
 }
 
-.application-process {
-  display: flex;
-  flex-direction: column; /* 修改：垂直排列 */
-  align-items: center; /* 修改：水平居中 */
-  margin: 40px 0;
-}
-
 .steps-container {
   display: flex;
   justify-content: space-around; /* 修改：均匀分布 */
   flex-wrap: wrap; /* 允许换行 */
 }
 
-/* 删除: .loan-product-card 样式 */
 .hero-section {
   background-image: url('@/assets/images/home_agriculture.jpg'); /* 使用指定图片 */
   background-size: 100% auto; /* 修改: 拉长背景图 */
@@ -209,50 +201,6 @@ const applicationProcess = [
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #45a049;
-}
-
-.application-process {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 40px 0;
-}
-
-.application-process .step {
-  text-align: center;
-}
-
-.application-process .step img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.application-process .step h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.application-process .step p {
-  font-size: 14px;
-  color: #666;
-}
-
-.application-process .step button {
-  padding: 10px 20px;
-  font-size: 14px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
-}
-
-.application-process .step button:hover {
-  transform: scale(1.05);
-  background-color: #45a049;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .loan-calculator {
