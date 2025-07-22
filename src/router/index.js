@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Register from '../views/Register.vue'; // 引入新创建的注册页面组件
 import Login from '../views/Login.vue';
+import LoanProducts from '../views/LoanProducts.vue';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/loan-products',
+    name: 'LoanProducts',
+    component: LoanProducts
   }
 ];
 

@@ -205,16 +205,6 @@ const faqs = [
   position: relative;
 }
 
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* 修改: 降低背景透明度 */
-}
-
 .hero-section h1 {
   font-size: 36px;
   margin: 0 0 20px;

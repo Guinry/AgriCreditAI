@@ -4,8 +4,8 @@
       <img src="@/assets/images/logo.png" alt="农业贷款服务平台标志" class="logo-image">
       <nav>
         <ul>
-          <li><a href="#">首页</a></li>
-          <li><a href="#">贷款产品</a></li>
+          <li><a href="/">首页</a></li>
+          <li><a href="/loan-products">贷款产品</a></li>
           <li><a href="#">申请指南</a></li>
           <li><a href="#">关于我们</a></li>
         </ul>
