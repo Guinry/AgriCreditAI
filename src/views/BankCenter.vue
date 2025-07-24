@@ -1,6 +1,5 @@
 <template>
   <div class="bank-center">
-    <!-- 左侧导航栏 -->
     <aside class="sidebar">
       <ul>
         <li :class="{ active: currentTab === '贷款产品管理' }" @click="currentTab = '贷款产品管理'">贷款产品管理</li>
