@@ -3,6 +3,9 @@ import Home from '../views/Home.vue';
 import Register from '../views/Register.vue'; // 引入新创建的注册页面组件
 import Login from '../views/Login.vue';
 import LoanProducts from '../views/LoanProducts.vue';
+import News from '../views/News.vue';
+import AdminCenter from "../views/AdminCenter.vue";
+import BankCenter from "../views/BankCenter.vue";
 
 const routes = [
   {
@@ -24,7 +27,22 @@ const routes = [
     path: '/loan-products',
     name: 'LoanProducts',
     component: LoanProducts
-  }
+  },
+  {
+    path: '/news',
+    name: 'News',
+    component: News
+  },
+  {
+    path: '/admin-center',
+    name: 'AdminCenter',
+    component: AdminCenter
+  },
+  {
+    path: '/bank-center',
+    name: 'BankCenter',
+    component: BankCenter
+  },
 ];
 
 const router = createRouter({

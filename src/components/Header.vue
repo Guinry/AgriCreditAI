@@ -4,10 +4,12 @@
       <img src="@/assets/images/logo.png" alt="农业贷款服务平台标志" class="logo-image">
       <nav>
         <ul>
-          <li><a href="/">首页</a></li>
-          <li><a href="/loan-products">贷款产品</a></li>
-          <li><a href="#">申请指南</a></li>
-          <li><a href="#">关于我们</a></li>
+          <li><router-link to="/">首页</router-link></li>
+          <li><router-link to="/news">资讯中心</router-link></li>
+          <!-- 其他导航项 -->
+          <li><router-link to="/loan-products">贷款产品</router-link></li>
+          <li><router-link to="#">申请指南</router-link></li>
+          <li><router-link to="#">关于我们</router-link></li>
         </ul>
       </nav>
       <div class="actions">
